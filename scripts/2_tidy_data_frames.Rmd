@@ -43,15 +43,12 @@ and definitely easier for human eyeballs.
 whether your data is tidy. Untidiness is a common, often overlooked cause of
 agony in data analysis and visualization. (Jenny Bryan, STAT545).
 
-
 ## Example of untidy data (Jenny Bryan, STAT545)
 ![Untidy data, Jenny Bryan.](../images/untidy_lotr.png)
-
 
 ### Why are these examples of untidy data?
 * What's the total number of words spoken by male hobbits in all three movies?
 * Is there a more talkative `Race`? 
-
 
 ## How do we turn these tables into a tidy dataframe?
 
@@ -77,20 +74,24 @@ Collect untidy dataframes into one dataframe:
 
 ```{r}
 lotr_untidy <- dplyr::bind_rows(fship, ttow, rking)
+
+lotr_untidy
 ```
 
 This dataframe is still untidy because "word count" is spread out between two
 columns, `Male` and `Female`. So to make this dataframe tidy, we need to:
 
-* `gather()` up the word counts into one column
+* `pivot_longer()` up the word counts into one column
 * create a new column for `Sex`
 
-![How gather works, example from Software Carpentry.](../images/how_gather_works.png)
-
+![visual representation of `pivot_longer()`from Software Carpentry](../images/how_pivot_works.png)
 
 Time to make this dataframe tidy!
 
 ```{r}
+# lotr_tidy <- lotr_untidy %>% 
+#   pivot_longer(., names_to = "Name of new column", values_to = "Words", cols = Columns:Used)
+
 lotr_tidy <- lotr_untidy %>% 
   pivot_longer(., names_to = "Sex", values_to = "Words", cols = Female:Male)
 
@@ -102,7 +103,7 @@ Check out Jenny Bryan's [LOTR GitHub Repo](https://github.com/jennybc/lotr-tidy)
 
 ## Challenge Question 1
 
-`spread()` is another tidyr function that converts a dataframe from the long
+`pivot_wider()` is another tidyr function that converts a dataframe from the long
 format to the wide format. How would you convert the `lotr_tidy` dataframe back
 into the `lotr_untidy` dataframe?
 
