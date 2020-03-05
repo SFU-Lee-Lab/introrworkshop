@@ -2,6 +2,7 @@
 
 ### Short link for this page: <http://tiny.cc/9zilkz>
 
+
 **Thursday, March 5th, 9am-1pm**
 
 This is the repo that will house our Introduction to R workshop
@@ -20,12 +21,14 @@ Carpentry Workshops.
 5.  Beautiful figures with ggplot2
 6.  Wrap-up exercises
 
+
 **Before the workshop, please make sure to install the following:**
 
 1.  R from CRAN: <https://www.r-project.org/>
 2.  RStudio: <https://www.rstudio.com/products/rstudio/download/>
 3.  Main R package: `tidyverse` (by typing
     `install.packages("tidyverse")` in RStudio)
+
 
 You might receive an error when trying to run the code
 `install.packages("tidyverse")`, something like “Package is not
