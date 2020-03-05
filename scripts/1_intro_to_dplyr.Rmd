@@ -55,10 +55,10 @@ gapminder <- read.csv("../data/gapminder_data.csv")
 <br>
 
 Let's take a quick look at our data frame to remind ourselves of its structure.
-We do this using the `head()` command, which will display the first 10 rows
-(given by `n = 10`) of our data frame.
+We do this using the `head()` command, which will display the first 6 rows
+of our data frame.
 ```{r}
-head(gapminder, n = 10)
+head(gapminder)
 ```
 
 <br>
@@ -87,7 +87,7 @@ Let's try using `select()` to pick out a few columns: "country", "year",
 gapminder_select <- select(gapminder, country, year, lifeExp, pop)
 
 # Check the data frame
-head(gapminder_select, n = 10)
+head(gapminder_select)
 ```
 
 <br>
@@ -110,7 +110,7 @@ result using `head()`.
 # select() using pipe syntax
 gapminder_pipe <- gapminder %>% select(., country, year, lifeExp, pop)
 
-head(gapminder_pipe, n = 10)
+head(gapminder_pipe)
 ```
 
 <br>
@@ -124,7 +124,7 @@ placeholder, as shown below.
 # select() using pipe syntax w/out a placeholder
 gapminder_pipe2 <- gapminder %>% select(country, year, lifeExp, pop)
 
-head(gapminder_pipe2, n = 10)
+head(gapminder_pipe2)
 
 ```
 
@@ -167,7 +167,7 @@ Let's go through a couple examples.
 # Filter rows where country is Canada
 gapminder_canada <- gapminder %>% filter(country == "Canada")
 
-head(gapminder_canada, n = 10)
+head(gapminder_canada)
 ```
 
 <br>
@@ -179,7 +179,7 @@ threshold:
 # Filter for rows where life expectancy is greater than 50
 gapminder_LE <- gapminder %>% filter(lifeExp > 50)
 
-head(gapminder_LE, n = 10)
+head(gapminder_LE)
 ```
 
 <br>
@@ -190,7 +190,7 @@ We can also filter with multiple arguments, each separated by a comma:
 # filter() for Canada and life expectancy greater than 80
 gapminder_C_LE <- gapminder %>% filter(country == "Canada", lifeExp > 80)
 
-head(gapminder_C_LE, n = 10)
+head(gapminder_C_LE)
 ```
 
 <br>
@@ -220,7 +220,7 @@ billions:
 # Use mutate() to calculate GDP in billions
 gapminder_gdpBil <- gapminder %>% mutate(gdp_billion = gdpPercap * pop / 10^9)
 
-head(gapminder_gdpBil, n = 10)
+head(gapminder_gdpBil)
 ```
 
 <br>
@@ -239,7 +239,7 @@ gapminder_multi <- gapminder %>%
     select(country, year, lifeExp, pop, gdpPercap) %>% 
     filter(country == "Canada")
 
-head(gapminder_multi, n = 10)
+head(gapminder_multi)
 ```
 
 <br>
@@ -255,7 +255,7 @@ gapminder_multi_2 <- gapminder %>%
     filter(country == "Canada") %>% 
     mutate(gdp_billion = gdpPercap * pop / 10^9)
 
-head(gapminder_multi_2, n = 10)
+head(gapminder_multi_2)
 ```
 
 <br>
@@ -274,7 +274,7 @@ gapminder_grp <- gapminder %>%
 group_by(country) %>% 
 summarise(mean(lifeExp))
 
-head(gapminder_grp, n = 10)
+head(gapminder_grp)
 ```
 
 <br>
@@ -288,7 +288,7 @@ gapminder_mean_sd <- gapminder %>%
     group_by(country) %>% 
     summarise(mean_gdp = mean(gdpPercap), sd_gdp = sd(gdpPercap))
 
-head(gapminder_mean_sd, n = 10)
+head(gapminder_mean_sd)
 ```
 
 <br>
@@ -355,5 +355,5 @@ gapminder_final <- gapminder %>%
     group_by(country) %>% 
     summarise(mean_gdpBillion = mean(gdp_billion), sd_gdpBillion = sd(gdp_billion))
 
-head(gapminder_final, n = 10)
+head(gapminder_final)
 ```
