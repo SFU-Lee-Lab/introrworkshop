@@ -45,7 +45,7 @@ want is a variant of the `theme()` function from ggplot.
 
 ### Solution
 
-```{r eval = FALSE, warning = FALSE}
+```{r warning = FALSE}
 suppressPackageStartupMessages(library(tidyverse))
 
 DEGenes <- read.csv("../data/example_human_genes.csv")
