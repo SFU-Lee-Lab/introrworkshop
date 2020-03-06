@@ -40,7 +40,7 @@ After you open RStudio, you should see the following 3 panels:
 
 ![](../images/RStudio_panels.png)
 
-## What are R pakcages?
+## What are R packages?
 R packages extend the functionality of R by providing additional functions, data
 and documentation.
 
