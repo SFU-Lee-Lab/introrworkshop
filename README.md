@@ -1,9 +1,5 @@
 # Intro R Workshop
 
-### Short link for this page: <http://tiny.cc/9zilkz>
-
-
-**Thursday, March 5th, 9am-1pm**
 
 This is the repo that will house our Introduction to R workshop
 materials. We have developed this workshop after running the UBC R Study
